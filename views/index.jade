@@ -1,10 +1,18 @@
 extends layout
 
 block content
-  h1= "December 2016"
-  
+  div.box-title.shadow-effect-bottom
+   table(style="width:100%")
+    tr
+      td(align="left")
+        img(src='/images/Christmas-Tree.png',height='30%')
+      td(align="center")
+        h1= "Sindhu's Kitchen XMAS Countdown"
+      td(align="right")
+        img(src='/images/Christmas-Tree.png',height='30%')
   each post in title
-    if(post.message)
-        p= post.created_time
-        p= post.message
-        img(src=post.full_picture)
+     if(post.message)
+         div.box-content.shadow-effect-sides
+           h3= post.created_time
+           h3= post.message
+           img(src=post.full_picture)
