@@ -1,5 +1,6 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url('/images/snowman.jpg');
 }
 a {
   color: #00b7ff;
@@ -17,7 +18,7 @@ h1 {
 .box-fb-page{
     width:70%;
     height:150px;
-    background:#FFF;
+    background-color : transparent;
     margin:auto;
     text-align: center;
     color: red;
