@@ -7,22 +7,29 @@ a {
 
 h1 {
     font-family: "Mountains of Christmas";
-    font-size: 45px;
+    font-size: 60px;
     font-style: normal;
     font-variant: normal;
-    font-weight: 400;
+    font-weight: bold;
     line-height: 26.4px;
 }
 
+.box-fb-page{
+    width:70%;
+    height:150px;
+    background:#FFF;
+    margin:auto;
+    text-align: center;
+    color: red;
+}
 
 .box-title {
     width:70%;
     height:150px;
     background:#d1f2c4;
-    margin:40px auto;
+    margin:auto;
     text-align: center;
     color: red;
-    font
 }
 
 .shadow-effect-bottom
@@ -66,6 +73,8 @@ h1 {
 .box-content img{
     display: block;
     margin: auto;
+    max-width:100%;
+    height:auto;
 }
 
 .shadow-effect-sides
