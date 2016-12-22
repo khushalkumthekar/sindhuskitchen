@@ -16,18 +16,18 @@ router.get('/', function(req, res, next) {
     host : 'graph.facebook.com', // here only the domain name
     // (no http/https !)
     port : 443,
-    path : '/v2.8/sindhuskitchen/posts?limit=50&fields=message%2Ccreated_time%2Cid%2Cfull_picture&access_token=EAACEdEose0cBAHehVIsMuVm1fKwJKYQeVosoijnZBoynGKPZAU1SnyZByYhsVngNjo2ud9IZAbi9RZADdgKAP6I87ZALHrdmHAKKjP3UqN0jbGVnys8duYlNoQVxKSZAO7sJdq3OahGnaDCGKG4Rfd6r8tQE15YMNhs5n8tqKJZCSLbV73B3v33Y', // the rest of the url with parameters if needed
+    path : '/v2.8/sindhuskitchen/posts?limit=50&fields=message%2Ccreated_time%2Cid%2Cfull_picture&access_token='+process.env.ACCESS_TOKEN, // the rest of the url with parameters if needed
     method : 'GET', // do GET
 	//agent: agent
   } ;
   
-  console.info('Options prepared:');
-  console.info(optionsget);
-  console.info('Do the GET call');
+  //console.info('Options prepared:');
+  //console.info(optionsget);
+  //console.info('Do the GET call');
 
   // do the GET request
   var reqGet = https.request(optionsget, function(res1) { 
-    console.log("statusCode: ", res1.statusCode);
+    //console.log("statusCode: ", res1.statusCode);
     // uncomment it for header details
   //  console.log("headers: ", res1.headers);
 
@@ -40,7 +40,7 @@ router.get('/', function(req, res, next) {
     });
 	
 	 res1.on('end', function() { 
-	  console.info('\n\nCall completed');
+	  //console.info('\n\nCall completed');
       //process.stdout.write(responseString);
 	  var responseJson = JSON.parse(responseString);
 	  //process.stdout.write(JSON.stringify(responseJson.data));
