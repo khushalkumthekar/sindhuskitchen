@@ -4,7 +4,7 @@ var https = require('https');
 
 /* GET users listing. */
 
-  
+router.get('/', function(req, res, next) {
   var optionsget = {
     host : 'graph.facebook.com', // here only the domain name
     // (no http/https !)
