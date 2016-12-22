@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= "December 2016"
+  
+  each post in title
+    if(post.message)
+        p= post.created_time
+        p= post.message
+        img(src=post.full_picture)
