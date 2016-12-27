@@ -1,7 +1,7 @@
 ## Installation
 
-npm install
-DEBUG=sinduskitchen:* npm start
+npm install <br/>
+DEBUG=sindhuskitchen:* npm start
 
 ## Access
 
