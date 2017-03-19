@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
     //host: 'webproxysea.nordstrom.net',
     //port: 8181
   //});
-  
+
   var optionsget = {
     host : 'graph.facebook.com', // here only the domain name
     // (no http/https !)
@@ -20,13 +20,13 @@ router.get('/', function(req, res, next) {
     method : 'GET', // do GET
 	//agent: agent
   } ;
-  
+
   //console.info('Options prepared:');
   //console.info(optionsget);
   //console.info('Do the GET call');
 
   // do the GET request
-  var reqGet = https.request(optionsget, function(res1) { 
+  var reqGet = https.request(optionsget, function(res1) {
     //console.log("statusCode: ", res1.statusCode);
     // uncomment it for header details
   //  console.log("headers: ", res1.headers);
@@ -38,8 +38,8 @@ router.get('/', function(req, res, next) {
 		responseString+=d;
         //console.info('\n\nCall completed');
     });
-	
-	 res1.on('end', function() { 
+
+	 res1.on('end', function() {
 	  //console.info('\n\nCall completed');
       //process.stdout.write(responseString);
 	  var responseJson = JSON.parse(responseString);
@@ -48,15 +48,15 @@ router.get('/', function(req, res, next) {
 	  responseJson.data.forEach (function(post) {
 		  var msg =  post.message;
 		  if(msg){
-			if(msg.indexOf('christmas')>-1){
+			//if(msg.indexOf('christmas')>-1){
                var postDate = Date.parse(post.created_time);
-               post.message = msg.replace('December is here! Countdown to Christmas starts now. ', '').substring(15);
+               //post.message = msg.replace('December is here! Countdown to Christmas starts now. ', '').substring(15);
                post.created_time = dateFormat(postDate,"longDate");
 			   posts.push(post);
-			}
+			//}
 		  }
 	  });
-	   
+
 	  res.render('index', { title: posts });
     });
 
@@ -66,8 +66,8 @@ router.get('/', function(req, res, next) {
    reqGet.on('error', function(e) {
     console.error(e);
    });
-   
-  
+
+
 });
 
 module.exports = router;
