@@ -6,8 +6,14 @@ You can access the production version of the application here https://sindhuskit
 ## Local Installation
 
 npm install <br/>
+export ACCESS_TOKEN <<access token for FB>> <br/>
 DEBUG=sindhuskitchen:* npm start
 
 ## Local Access
-
 http://localhost:3000/
+
+## Deploy to heroku
+
+git add <file name(s)> <br/>
+git commit -m "Message" <br/>
+git push heroku master <br/>
