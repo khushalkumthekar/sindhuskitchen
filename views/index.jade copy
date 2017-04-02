@@ -1,0 +1,54 @@
+extends layout
+
+block content
+  #fb-root
+  script.
+    (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+     showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+      var i;
+      var x = document.getElementsByClassName("box-content");
+      if (n > x.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = x.length}
+      for (i = 0; i < x.length; i++) {
+         x[i].style.display = "none";
+       }
+      x[slideIndex-1].style.display = "block";
+    }
+  table
+    tr
+      td
+        div.box-fb-page
+         div(class="fb-page"
+         data-href="https://www.facebook.com/sindhuskitchen"
+         data-width="120"
+         data-hide-cover="true"
+         data-show-facepile="false"
+         data-show-posts="false")
+      td
+         div.w3-content.w3-display-container
+           each post in title
+             if(post.message)
+              div.box-content.shadow-effect-sides
+                h3= post.created_time
+                h3= post.message
+                img(src=post.full_picture)
+                a(class="w3-btn-floating w3-display-left" onclick="plusDivs(-1)") &#10094;
+                a(class="w3-btn-floating w3-display-right" onclick="plusDivs(1)") &#10095;
+      td
+
+
+

@@ -1,6 +1,6 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url('/images/kitchen.jpg');
+  background-image: url('/images/background.jpg');
   background-size: 100%;
 }
 a {
@@ -102,4 +102,3 @@ h1 {
     left:auto;
     transform:skew(8deg) rotate(3deg);
 }
-
