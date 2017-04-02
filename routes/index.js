@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
     host : 'graph.facebook.com', // here only the domain name
     // (no http/https !)
     port : 443,
-    path : '/v2.8/sindhuskitchen/posts?limit=50&fields=message%2Ccreated_time%2Cid%2Cfull_picture&access_token='+process.env.ACCESS_TOKEN, // the rest of the url with parameters if needed
+    path : '/v2.8/sindhuskitchen/posts?limit=50&fields=message%2Ccreated_time%2Cid%2Cfull_picture%2Cattachments{url,type}&access_token='+process.env.ACCESS_TOKEN, // the rest of the url with parameters if needed
     method : 'GET', // do GET
 	//agent: agent
   } ;
@@ -47,7 +47,7 @@ router.get('/', function(req, res, next) {
 	  var posts = [];
 	  responseJson.data.forEach (function(post) {
 		  var msg =  post.message;
-		  if(msg){
+		  if(msg && post.attachments.data[0].type.indexOf('video') < 0){
 			//if(msg.indexOf('christmas')>-1){
                var postDate = Date.parse(post.created_time);
                //post.message = msg.replace('December is here! Countdown to Christmas starts now. ', '').substring(15);
